@@ -4,6 +4,7 @@ import 'package:whatsapp_ui_clone/screens/call_screen.dart';
 import 'package:whatsapp_ui_clone/screens/camera_screen.dart';
 import 'package:whatsapp_ui_clone/screens/chat_screen.dart';
 import 'package:whatsapp_ui_clone/screens/status_screen.dart';
+import 'package:whatsapp_ui_clone/services/api_service.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);

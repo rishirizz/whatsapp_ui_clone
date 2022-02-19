@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 import 'package:whatsapp_ui_clone/constants/styles.dart';
+import 'package:whatsapp_ui_clone/services/api_service.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -9,6 +11,23 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  List userList = [];
+  List photosList = [];
+  @override
+  void initState() {
+    super.initState();
+    getNames().then((names) {
+      setState(() {
+        userList = names;
+      });
+    });
+    getPhotos().then((photos) {
+      setState(() {
+        photosList = photos;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,14 +39,17 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
       backgroundColor: Colors.white,
       body: ListView.builder(
-        itemCount: 25,
+        itemCount: userList.length,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: const EdgeInsets.all(10),
             child: Row(
               children: [
-                const CircleAvatar(
-                  child: FlutterLogo(),
+                CircleAvatar(
+                  child: FadeInImage.memoryNetwork(
+                    placeholder: kTransparentImage,
+                    image: photosList[index]['url'],
+                  ),
                 ),
                 const SizedBox(
                   width: 12,
@@ -37,14 +59,14 @@ class _ChatScreenState extends State<ChatScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Title',
+                        userList[index]['name'],
                         style: cardHeaderTextStyle,
                       ),
                       const SizedBox(
                         height: 5,
                       ),
                       Text(
-                        'Subtitle',
+                        userList[index]['company']['catchPhrase'],
                         style: cardPrimaryTextStyle,
                       ),
                     ],
