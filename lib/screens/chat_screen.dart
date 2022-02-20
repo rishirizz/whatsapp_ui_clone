@@ -13,6 +13,18 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   List userList = [];
   List photosList = [];
+  List<String> timeList = [
+    '17:58',
+    '16:47',
+    '13:07',
+    '10:00',
+    '9:21',
+    'Yesterday',
+    'Yesterday',
+    '17/02/2022',
+    '17/02/2022',
+    '17/02/2022',
+  ];
   @override
   void initState() {
     super.initState();
@@ -35,6 +47,7 @@ class _ChatScreenState extends State<ChatScreen> {
         onPressed: () {},
         child: const Icon(
           Icons.chat,
+          color: Colors.white,
         ),
       ),
       backgroundColor: Colors.white,
@@ -68,16 +81,62 @@ class _ChatScreenState extends State<ChatScreen> {
                       const SizedBox(
                         height: 5,
                       ),
-                      Text(
-                        userList[index]['company']['catchPhrase'],
-                        style: cardPrimaryTextStyle,
+                      Row(
+                        children: [
+                          if (index != 0)
+                            Icon(
+                              Icons.done_all,
+                              color: (index == 0 || index == 1 || index == 4)
+                                  ? Color(0xff707070)
+                                  : Colors.blue,
+                              size: 18,
+                            ),
+                          Padding(
+                            padding: (index != 0)
+                                ? const EdgeInsets.only(left: 4.0)
+                                : EdgeInsets.all(0),
+                            child: Text(
+                              userList[index]['company']['catchPhrase'],
+                              style: cardPrimaryTextStyle,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
-                Text(
-                  '14:12',
-                  style: cardSecondaryTextStyle.copyWith(fontSize: 10),
+                Column(
+                  children: [
+                    Text(
+                      timeList[index],
+                      style: cardSecondaryTextStyle.copyWith(
+                        fontSize: 10,
+                        color:
+                            (index == 0) ? Color(0xff25D366) : Colors.black87,
+                      ),
+                    ),
+                    if (index == 0)
+                      Container(
+                        height: 26,
+                        width: 18,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xff25D366),
+                        ),
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 2.0),
+                            child: Text(
+                              '1',
+                              style: cardPrimaryTextStyle.copyWith(
+                                fontSize: 10,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
               ],
             ),
