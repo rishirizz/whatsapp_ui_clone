@@ -46,9 +46,12 @@ class _ChatScreenState extends State<ChatScreen> {
             child: Row(
               children: [
                 CircleAvatar(
-                  child: FadeInImage.memoryNetwork(
-                    placeholder: kTransparentImage,
-                    image: photosList[index]['url'],
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
+                    child: FadeInImage.memoryNetwork(
+                      placeholder: kTransparentImage,
+                      image: photosList[index]['url'],
+                    ),
                   ),
                 ),
                 const SizedBox(
