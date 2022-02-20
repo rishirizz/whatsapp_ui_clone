@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_ui_clone/constants/styles.dart';
 import 'package:whatsapp_ui_clone/screens/call_screen.dart';
 import 'package:whatsapp_ui_clone/screens/chat_screen.dart';
 import 'package:whatsapp_ui_clone/screens/status_screen.dart';
@@ -58,10 +59,38 @@ class _MainScreenState extends State<MainScreen>
                     bottom: 5,
                   ),
                   controller: _tabController,
-                  tabs: const [
+                  tabs: [
                     // Icon(Icons.photo_camera),
-                    Text(
-                      'CHATS',
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'CHATS',
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Container(
+                            height: 26,
+                            width: 18,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 2.0),
+                                child: Text(
+                                  '1',
+                                  style: cardPrimaryTextStyle.copyWith(
+                                    fontSize: 10,
+                                    color: Color(0xff075e54),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     Text(
                       'STATUS',
