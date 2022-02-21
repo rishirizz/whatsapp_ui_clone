@@ -13,8 +13,9 @@ class WhatsApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: new Color(0xff075E54),
-        accentColor: new Color(0xff25D366),
+        primaryColor: const Color(0xff075E54),
+        colorScheme: ColorScheme.fromSwatch()
+            .copyWith(secondary: const Color(0xff25D366)),
       ),
       home: const MainScreen(),
       onGenerateRoute: (RouteSettings settings) {
