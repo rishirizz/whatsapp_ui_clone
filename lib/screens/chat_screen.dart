@@ -44,6 +44,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        elevation: 0,
         onPressed: () {},
         child: const Icon(
           Icons.chat,
@@ -55,7 +56,7 @@ class _ChatScreenState extends State<ChatScreen> {
         itemCount: userList.length,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(15),
             child: Row(
               children: [
                 CircleAvatar(

@@ -44,6 +44,7 @@ class _CallScreenState extends State<CallScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
+        elevation: 0,
         onPressed: () {},
         child: const Icon(
           Icons.add_ic_call,
@@ -64,7 +65,7 @@ class _CallScreenState extends State<CallScreen> {
           }
 
           return Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(15),
             child: Row(
               children: [
                 CircleAvatar(
@@ -98,7 +99,6 @@ class _CallScreenState extends State<CallScreen> {
                           userList[1]['name'],
                           style: cardHeaderTextStyle,
                         ),
-                    
                       const SizedBox(
                         height: 5,
                       ),
