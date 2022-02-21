@@ -86,7 +86,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         children: [
                           if (index != 0)
                             Icon(
-                              Icons.call_made,
+                              Icons.done_all,
                               color: (index == 0 || index == 1 || index == 4)
                                   ? const Color(0xff707070)
                                   : Colors.blue,
