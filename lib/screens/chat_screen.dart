@@ -44,6 +44,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        elevation: 0,
         onPressed: () {},
         child: const Icon(
           Icons.chat,
@@ -55,7 +56,7 @@ class _ChatScreenState extends State<ChatScreen> {
         itemCount: userList.length,
         itemBuilder: (BuildContext context, int index) {
           return Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(15),
             child: Row(
               children: [
                 CircleAvatar(
@@ -87,14 +88,14 @@ class _ChatScreenState extends State<ChatScreen> {
                             Icon(
                               Icons.done_all,
                               color: (index == 0 || index == 1 || index == 4)
-                                  ? Color(0xff707070)
+                                  ? const Color(0xff707070)
                                   : Colors.blue,
                               size: 18,
                             ),
                           Padding(
                             padding: (index != 0)
                                 ? const EdgeInsets.only(left: 4.0)
-                                : EdgeInsets.all(0),
+                                : const EdgeInsets.all(0),
                             child: Text(
                               userList[index]['company']['catchPhrase'],
                               style: cardPrimaryTextStyle,
@@ -111,15 +112,16 @@ class _ChatScreenState extends State<ChatScreen> {
                       timeList[index],
                       style: cardSecondaryTextStyle.copyWith(
                         fontSize: 10,
-                        color:
-                            (index == 0) ? Color(0xff25D366) : Colors.black87,
+                        color: (index == 0)
+                            ? const Color(0xff25D366)
+                            : Colors.black87,
                       ),
                     ),
                     if (index == 0)
                       Container(
                         height: 26,
                         width: 18,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Color(0xff25D366),
                         ),

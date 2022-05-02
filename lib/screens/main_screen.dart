@@ -34,6 +34,7 @@ class _MainScreenState extends State<MainScreen>
           headerSliverBuilder: (BuildContext context, bool isBoxScrolled) {
             return <Widget>[
               SliverAppBar(
+                backgroundColor: const Color(0xff075E54),
                 actions: const [
                   Icon(Icons.search),
                   SizedBox(
@@ -64,7 +65,7 @@ class _MainScreenState extends State<MainScreen>
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'CHATS',
                         ),
                         Padding(
@@ -72,7 +73,7 @@ class _MainScreenState extends State<MainScreen>
                           child: Container(
                             height: 26,
                             width: 18,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                               color: Colors.white,
                             ),
@@ -83,7 +84,7 @@ class _MainScreenState extends State<MainScreen>
                                   '1',
                                   style: cardPrimaryTextStyle.copyWith(
                                     fontSize: 10,
-                                    color: Color(0xff075e54),
+                                    color: const Color(0xff075e54),
                                   ),
                                 ),
                               ),
@@ -92,10 +93,10 @@ class _MainScreenState extends State<MainScreen>
                         ),
                       ],
                     ),
-                    Text(
+                    const Text(
                       'STATUS',
                     ),
-                    Text(
+                    const Text(
                       'CALLS',
                     ),
                   ],
